@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sssnake</title>
+    <link href="style.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="icon" href="icon.png">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+</head>
+<body>
+    <!--Login Menu-->
+    <div class="login">
+        <input type="text" id="login-input" placeholder="username">
+        <button id="login-btn">login</button>
+    </div>
+    <!--Start Menu-->
+    <div class="start-game">
+        <p>Welcome to Sssnake!</p>
+        <button>Play!</button>
+    </div>
+    <!--Gameplay elements-->
+    <p id="high-score">high score : 0</p>
+    <p id="score">score : 0</p>
+    <div class="game-grid"></div>
+    <button class="mute-btn"><i class='bx bxs-volume-full'></i></button>
+    <button class="pause-resume-btn"><i class='bx bx-pause'></i></button>
+    <div class="pause-screen">Paused</div>
+    <!--Game Over-->
+    <div class="game-over">
+        <p>Game Over!</p>
+        <button id="newgame-btn">New Game</button>
+    </div>
+    <!--Audio-->
+    <audio id="theme-music" src="theme.mp3" loop></audio>
+    <audio id="apple-crunch" src="crunch.wav" ></audio>
+    <audio id="death" src="death.wav"></audio>
+
+    <script src="game.js"></script>
+</body>
+</html>

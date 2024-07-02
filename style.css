@@ -1,0 +1,264 @@
+:root{
+    --squareColor: #6e8e4c;
+    --darkgreen : #54713e;
+    --snakeColor: #0047AB;
+    --snakeBorder: #00008B;
+    --squareSize : 2rem;
+}
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Press Start 2P", system-ui;
+}
+
+body{
+    width: 100%;
+    height: 100vh;
+    background-color: #000;
+}
+
+.game-grid{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    height: 30rem;
+    width: 30rem;
+    background-color: var(--darkgreen);
+    border: 0.2rem solid var(--darkgreen);
+    filter: none;
+    background-image:
+    linear-gradient(45deg, var(--squareColor) 25%, transparent 25%), 
+    linear-gradient(135deg, var(--squareColor) 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, var(--squareColor) 75%),
+    linear-gradient(135deg, transparent 75%, var(--squareColor) 75%);
+    background-size:calc(2 * var(--squareSize)) calc(2 * var(--squareSize)); 
+    background-position:0 0, var(--squareSize) 0, var(--squareSize) calc(-1 * var(--squareSize)), 0 calc(-1 * var(--squareSize)); 
+}
+
+#score{
+    color: white;
+    position: absolute;
+    top: 3rem;
+    right: calc(50% - 15rem); 
+    font-size: 1.2rem;
+}
+
+.snake-segment{
+    position: absolute;
+    height: 2rem;
+    width: 2rem;
+    border-radius: 0%;
+    background-color: var(--snakeColor);
+    /*border: 1px solid var(--snakeBorder);*/
+}
+
+.apple{
+    position: absolute;
+    height: 2rem;
+    width: 2rem;
+    border-radius: 50%;
+    background-color: red;
+}
+
+.game-over{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background-color: orange;
+    height: 10rem;
+    width: 15rem;
+    border-radius: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 1rem;
+    padding: 1rem;
+    display: none;
+    z-index: 1;
+
+}
+
+#newgame-btn{
+    border: none;
+    background-color: red;
+    color: white;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    transition: all 0.5s ease;
+}
+
+#newgame-btn:hover{
+    background-color: orange;
+    color: red;
+    border: 2px solid red;
+}
+
+.start-game{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background-color: orange;
+    height: 10rem;
+    width: 15rem;
+    border-radius: 2rem;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    display: none;
+}
+
+.start-game button{
+    background-color: transparent;
+    padding: 1rem 2rem;
+    border: 2px solid black;
+    border-radius: 2rem;
+    margin-top: 1rem;
+}
+
+.start-game button:hover{
+    border: 2px solid red;
+    color: red;
+    transform: scale(1.1);
+}
+
+.snake-head{
+    position: absolute;
+    height: 2rem;
+    width: 2rem;
+    border-radius: 0%;
+    background-color: var(--snakeColor);
+    /*border: 1px solid var(--snakeBorder);*/
+    border-top-right-radius: 35%;
+    border-bottom-right-radius: 35%;
+}
+
+.snake-head::before {
+    content: '';
+    position: absolute;
+    width: 0.25rem;
+    height: 0.25rem;
+    background: #000;
+    border-radius: 50%;
+    right: 0.5rem;
+    top: 0.5rem;
+}
+
+.snake-head::after {
+    content: '';
+    position: absolute;
+    width: 0.25rem;
+    height: 0.25rem;
+    background: #000;
+    border-radius: 50%;
+    right: 0.5rem;
+    bottom: 0.5rem;
+}
+
+.snake-tail{
+    position: absolute;
+    height: 2rem;
+    width: 2rem;
+    border-radius: 0%;
+    background-color: var(--snakeColor);
+    /*border: 1px solid var(--snakeBorder);*/
+    border-top-left-radius: 35%;
+    border-bottom-left-radius: 35%;
+}
+
+.login{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background-color: orange;
+    height: 10rem;
+    width: 15rem;
+    border-radius: 2rem;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    z-index: 1;
+}
+
+#login-input{
+    border: none;
+    width: 90%;
+    padding: 0.5rem;
+}
+
+#login-btn{
+    margin-top: 0.5rem;
+    border: none;
+    padding: 0.5rem;
+    color: white;
+    background-color: red;
+}
+
+#login-btn:hover{
+    transform: scale(1.1);
+}
+
+#high-score{
+    color: red;
+    position: absolute;
+    top: 3rem;
+    left: calc(50% - 15rem); 
+    font-size: 0.8rem;
+}
+
+.pause-resume-btn{
+    position: absolute;
+    top: calc(50% + 15rem);
+    margin-top: 0.5rem;
+    right: calc(50% - 15rem);
+    border: none;
+    font-size: 2rem;
+    text-align: center;
+    color: #fff;
+    background-color: transparent;
+    display: none;
+}
+
+.pause-resume-btn:hover{
+    color: red;
+}
+
+.pause-screen{
+    color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    z-index: 20;
+    font-size: 2rem;
+    display: none;
+}
+
+.mute-btn{
+    position: absolute;
+    top: calc(50% + 15rem);
+    margin-top: 0.5rem;
+    left: calc(50% - 15rem);
+    text-align: center;
+    font-size: 1.5rem;
+    border: none;
+    background-color: transparent;
+    color: white;
+    display: none;
+}
+
+.mute-btn:hover{
+    color: red;
+}
